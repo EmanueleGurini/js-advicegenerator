@@ -1,0 +1,81 @@
+/* GENERAL */
+:root {
+  --dark-blue: #202733;
+  --dark-grayish-blue: #313a48;
+  --grayish-blue: #4f5d74;
+  --light-cyan: #cee3e9;
+  --neon-green: #53ffaa;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--dark-blue);
+}
+
+h1 {
+  color: var(--neon-green);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h2 {
+  color: var(--light-cyan);
+  font-weight: 800;
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* CARD */
+.card {
+  background: var(--dark-grayish-blue);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  padding: 48px 48px 64px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 540px;
+}
+
+.card__title,
+.card__advice {
+  text-align: center;
+}
+
+.card__advice::before {
+  content: "“";
+  letter-spacing: 0;
+}
+
+.card__advice::after {
+  content: "”";
+}
+
+.card__button {
+  background: var(--neon-green);
+  border-radius: 50%;
+  border: none;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  left: 50%;
+  padding: 24px;
+  position: absolute;
+  transform: translate(-50%, 50%);
+}
