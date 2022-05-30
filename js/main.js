@@ -28,7 +28,6 @@ updateAdviceData();
 
 /**
  * update all card data - title and advice
- * @constructor
  */
 function updateAdviceData() {
   let randomNum = getRandomNum();
@@ -38,7 +37,6 @@ function updateAdviceData() {
 
 /**
  * Change text inside card__title element.
- * @constructor
  */
 function updateAdviceNum(num) {
   adviceNum.innerHTML = `advice #${num}`;
@@ -46,7 +44,6 @@ function updateAdviceNum(num) {
 
 /**
  * Change text inside card__advice element.
- * @constructor
  */
 function updateAdvice(num) {
   adviceText.innerHTML = advice[num];
@@ -54,10 +51,8 @@ function updateAdvice(num) {
 
 /**
  * Generate a random number from 0 to advice array lenght.
- * @constructor
  */
 function getRandomNum() {
   let randomNum = Math.floor(Math.random() * advice.length);
-  console.log("random num:", randomNum);
   return randomNum;
 }

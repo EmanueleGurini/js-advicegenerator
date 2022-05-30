@@ -79,3 +79,7 @@ h2 {
   position: absolute;
   transform: translate(-50%, 50%);
 }
+
+.card__button:hover {
+  background: #02ea7e;
+}
