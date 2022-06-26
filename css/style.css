@@ -71,6 +71,8 @@ h2 {
   display: none;
 }
 
+/* Button */
+
 .card__button {
   background: var(--neon-green);
   border-radius: 50%;
@@ -89,6 +91,10 @@ h2 {
   background: #53ffaa;
   box-shadow: 0px 0px 40px #53ffaa;
 }
+
+/*==================================
+  MEDIA QUERIES
+==================================*/
 
 @media screen and (max-width: 375px) {
   .card {
