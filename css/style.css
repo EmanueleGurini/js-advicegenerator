@@ -82,13 +82,19 @@ h2 {
   padding: 24px;
   position: absolute;
   transform: translate(-50%, 50%);
+  transition: box-shadow 0.4s;
 }
 
 .card__button:hover {
-  background: #02ea7e;
+  background: #53ffaa;
+  box-shadow: 0px 0px 40px #53ffaa;
 }
 
 @media screen and (max-width: 375px) {
+  .card {
+    padding: 48px 24px 64px;
+  }
+
   .card__advice--desktop {
     display: none;
   }
