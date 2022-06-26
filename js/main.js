@@ -1,58 +1,37 @@
-/* 
-
-  Advices
-
-  1. Remember that spiders are more afraid of you, than you are of them.
-  2. Smile and the world smiles with you. Frown and you're on your own.
-  3. Don't eat non-snow-coloured snow.
-  4. Cars are bad investments.
-  5. If you have the chance, take it!
-
-*/
-
-const advice = [
-  "Remember that spiders are more afraid of you, than you are of them.",
-  "Smile and the world smiles with you. Frown and you're on your own.",
-  "Don't eat non-snow-coloured snow.",
-  "Cars are bad investments.",
-  "If you have the chance, take it!",
-];
+"use strict";
 
 let button = document.querySelector(".card__button");
-button.addEventListener("click", updateAdviceData);
+button.addEventListener("click", printAdvice);
 
 let adviceNum = document.querySelector(".card__title");
 let adviceText = document.querySelector(".card__advice");
 
-updateAdviceData();
+window.onload = printAdvice();
 
 /**
  * update all card data - title and advice
  */
-function updateAdviceData() {
-  let randomNum = getRandomNum();
-  updateAdvice(randomNum);
-  updateAdviceNum(randomNum);
+async function printAdvice() {
+  let advice = await getNewAdvice(getRandomNum()).then((res) => res);
+  adviceText.innerHTML = advice.slip.advice;
+  adviceNum.innerHTML = advice.slip.id;
 }
 
 /**
- * Change text inside card__title element.
+ * Get new advice
+ * @param randomId is a random id generated from function getRandomNum()
+ * @returns {Promise} Promise object represents new advice
  */
-function updateAdviceNum(num) {
-  adviceNum.innerHTML = `advice #${num}`;
+async function getNewAdvice(randomId) {
+  let advice = await fetch(`https://api.adviceslip.com/advice/${randomId}`);
+  advice = await advice.json();
+  return advice;
 }
 
 /**
- * Change text inside card__advice element.
- */
-function updateAdvice(num) {
-  adviceText.innerHTML = advice[num];
-}
-
-/**
- * Generate a random number from 0 to advice array lenght.
+ * Generates new random number between 1 and 224
+ * @returns {numberl} random number
  */
 function getRandomNum() {
-  let randomNum = Math.floor(Math.random() * advice.length);
-  return randomNum;
+  return Math.floor(Math.random() * (224 - 1) + 1);
 }

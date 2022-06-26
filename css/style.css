@@ -50,7 +50,7 @@ h2 {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
-  width: 540px;
+  max-width: 540px;
 }
 
 .card__title,
@@ -65,6 +65,10 @@ h2 {
 
 .card__advice::after {
   content: "”";
+}
+
+.card__advice--mobile {
+  display: none;
 }
 
 .card__button {
@@ -82,4 +86,13 @@ h2 {
 
 .card__button:hover {
   background: #02ea7e;
+}
+
+@media screen and (max-width: 375px) {
+  .card__advice--desktop {
+    display: none;
+  }
+  .card__advice--mobile {
+    display: block;
+  }
 }
