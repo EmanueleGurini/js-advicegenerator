@@ -14,7 +14,7 @@ window.onload = printAdvice();
 async function printAdvice() {
   let advice = await getNewAdvice(getRandomNum()).then((res) => res);
   adviceText.innerHTML = advice.slip.advice;
-  adviceNum.innerHTML = advice.slip.id;
+  adviceNum.innerHTML = `advice #${advice.slip.id}`;
 }
 
 /**
