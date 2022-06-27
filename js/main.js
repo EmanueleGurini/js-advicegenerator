@@ -25,11 +25,11 @@ async function printAdvice() {
 async function getNewAdvice(randomId) {
   if (navigator.userAgent.toLowerCase().indexOf("firefox")) {
     let advice = await fetch(`https://api.adviceslip.com/advice/${randomId}`);
-    advice = await advice.json();
+    advice = (await advice.ok) ? advice.json() : Promise.reject("Fetch failed");
     return advice;
   }
   let advice = await fetch(`https://api.adviceslip.com/advice`);
-  advice = await advice.json();
+  advice = (await advice.ok) ? advice.json() : Promise.reject("Fetch failed");
   return advice;
 }
 
