@@ -18,12 +18,17 @@ async function printAdvice() {
 }
 
 /**
- * Get new advice
+ * Get new advice: if userAgent === Firefox runs the first function, else runs function without random number
  * @param randomId is a random id generated from function getRandomNum()
  * @returns {Promise} Promise object represents new advice
  */
 async function getNewAdvice(randomId) {
-  let advice = await fetch(`https://api.adviceslip.com/advice/${randomId}`);
+  if (navigator.userAgent.toLowerCase().indexOf("firefox")) {
+    let advice = await fetch(`https://api.adviceslip.com/advice/${randomId}`);
+    advice = await advice.json();
+    return advice;
+  }
+  let advice = await fetch(`https://api.adviceslip.com/advice`);
   advice = await advice.json();
   return advice;
 }
