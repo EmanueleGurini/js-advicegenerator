@@ -12,7 +12,7 @@ window.onload = printAdvice();
  * update all card data - title and advice
  */
 async function printAdvice() {
-  let advice = await getNewAdvice(getRandomNum()).then((res) => res);
+  let advice = await getNewAdvice(getRandomNum());
   adviceText.innerHTML = advice.slip.advice;
   adviceNum.innerHTML = `advice #${advice.slip.id}`;
 }
